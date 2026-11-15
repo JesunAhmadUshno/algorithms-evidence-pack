@@ -4,3 +4,12 @@ __pycache__/
 build/
 dist/
 .pytest_cache/
+
+node_modules/
+site/dist/
+site/src/data.json
+
+# site
+site/node_modules/
+site/dist/
+site/src/data.json
