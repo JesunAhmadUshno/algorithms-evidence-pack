@@ -9,6 +9,16 @@ standard library.
 This repository exists to be checked. Every claim in it can be
 verified by running the tests and the benchmark script.
 
+## Dashboard
+
+A live dashboard is published from the `site/` folder in this
+repository: [jesunahmadushno.github.io/algorithms-evidence-pack](https://jesunahmadushno.github.io/algorithms-evidence-pack/).
+It carries the coverage map, the benchmark chart and table with the
+losing rows kept in, a searchable implementation index, and a diagram
+of the package structure. Every number on the page is generated at
+build time from `RESULTS.md` and this README, and the build fails if
+the page and the record drift.
+
 ## What is covered
 
 | Area | Implementations | File |
