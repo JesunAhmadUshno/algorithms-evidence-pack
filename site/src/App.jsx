@@ -334,6 +334,12 @@ export default function App() {
           <a href={`${REPO}/blob/main/RESULTS.md`}>RESULTS.md</a>
           <a href={`${REPO}/blob/main/README.md`}>README.md</a>
         </p>
+        <p className="support">
+          <a href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a>
+          <a href="https://github.com/sponsors/JesunAhmadUshno">Donate</a>
+          <a href="https://buymeacoffee.com/jesun">Buy Me a Coffee</a>
+          <a href="https://calendly.com/jesunahmadushno/30min">Work with me</a>
+        </p>
         <p className="footer-note">
           Every number on this page is generated at build time from RESULTS.md
           and README.md in the repository, and the build fails if the two drift.
