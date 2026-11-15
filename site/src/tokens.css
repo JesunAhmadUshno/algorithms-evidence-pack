@@ -1,24 +1,68 @@
 :root {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --bg: #f4f7fb;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-strong: #fff;
+  --border: rgba(20, 32, 51, 0.1);
+  --text: #142033;
+  --muted: #617089;
+  --primary: #2457d6;
+  --primary-strong: #1746b8;
+  --primary-pale: #eaf0fd;
+  --good: #1f8f5f; --good-bg: #e6f8ef;
+  --warn: #a46b00; --warn-bg: #fff4db;
+  --bad: #c53a3a; --bad-bg: #fdecec;
+  --radius-xl: 24px; --radius-lg: 18px; --radius-md: 14px; --radius-pill: 999px;
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --grid: rgba(20, 32, 51, 0.08);
+  --footer-bg: #141310;
+  --footer-text: #a39d92;
+  --footer-strong: #e9e4da;
+  --footer-code-bg: rgba(255, 255, 255, 0.08);
+  --surface-alt: #eef2f8;
+  --border-strong: rgba(20, 32, 51, 0.22);
+  --text-2: #33415c;
+  --btn-ink: #f7f9ff;
+  --bar-base: #9aa8bf;
   color-scheme: light;
   --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px;
   --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem;
   --text-display: clamp(2.5rem, 5vw + 1rem, 4.25rem); --text-section: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); --text-title: 1.25rem; --text-lead: clamp(1.0625rem, 0.35vw + 1rem, 1.25rem);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-short: 180ms;
-  --container: 1200px; --gutter: 40px; --gap-columns: 24px;
-  --color-paper: oklch(98.5% 0.004 250); --color-paper-2: oklch(96% 0.006 250); --color-paper-3: oklch(93% 0.008 250);
-  --color-ink: oklch(24% 0.012 250); --color-ink-2: oklch(38% 0.012 250); --color-muted: oklch(52% 0.012 250);
-  --color-rule: oklch(88% 0.008 250); --color-rule-2: oklch(78% 0.01 250);
-  --color-accent: oklch(50% 0.14 245); --color-accent-ink: oklch(99% 0.004 250); --color-accent-soft: oklch(93% 0.03 245);
-  --color-focus: oklch(50% 0.14 245);
-  --color-ok: oklch(44% 0.13 150); --color-ok-soft: oklch(94% 0.03 150);
-  --color-bad: oklch(52% 0.16 27); --color-bad-soft: oklch(95% 0.025 27);
-  --color-bar-pack: oklch(50% 0.14 245); --color-bar-base: oklch(72% 0.012 250); --color-bar-loss: oklch(52% 0.16 27);
-  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-body: var(--font-display);
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
-  --radius-card: 10px; --radius-pill: 999px; --rule-hair: 1px;
+  --container: 1080px; --gutter: 24px; --gap-columns: 24px;
+  --color-paper: var(--bg); --color-paper-2: var(--surface-strong); --color-paper-3: var(--surface-alt);
+  --color-ink: var(--text); --color-ink-2: var(--text-2); --color-muted: var(--muted);
+  --color-rule: var(--border); --color-rule-2: var(--border-strong);
+  --color-accent: var(--primary); --color-accent-ink: var(--btn-ink); --color-accent-soft: var(--primary-pale);
+  --color-focus: var(--primary);
+  --color-ok: var(--good); --color-ok-soft: var(--good-bg);
+  --color-bad: var(--bad); --color-bad-soft: var(--bad-bg);
+  --color-bar-pack: var(--primary); --color-bar-base: var(--bar-base); --color-bar-loss: var(--bad);
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-sans);
+  --radius-card: var(--radius-lg); --rule-hair: 1px;
   --tracking-display: -0.03em; --display-weight: 650;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1420; --surface: rgba(22, 31, 46, 0.9); --surface-strong: #18233a;
+    --border: rgba(220, 230, 245, 0.12); --text: #e7edf7; --muted: #9aa8bf;
+    --primary: #6d95ff; --primary-strong: #8fb0ff; --primary-pale: rgba(109, 149, 255, 0.14);
+    --good: #4fcf95; --good-bg: rgba(79, 207, 149, 0.12);
+    --warn: #f0b84a; --warn-bg: rgba(240, 184, 74, 0.12);
+    --bad: #ff7a7a; --bad-bg: rgba(255, 122, 122, 0.12);
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.4); --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --grid: rgba(220, 230, 245, 0.1);
+    --surface-alt: #131e30;
+    --border-strong: rgba(220, 230, 245, 0.28);
+    --text-2: #c3cede;
+    --btn-ink: #101828;
+    --bar-base: #617089;
+    color-scheme: dark;
+  }
 }
 @media (max-width: 60rem) { :root { --gutter: 24px; } }
 @media (max-width: 40rem) { :root { --gutter: 16px; } }

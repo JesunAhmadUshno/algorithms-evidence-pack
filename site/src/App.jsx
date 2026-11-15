@@ -99,6 +99,47 @@ function StructureDiagram() {
   );
 }
 
+function FlowDiagram() {
+  const steps = [
+    ["Implement", `${data.areas.length} modules, one per area`],
+    ["Test", `${data.testsPassing} tests passing`],
+    ["Time", `${data.benchmarks.length} measured benchmark rows`],
+    ["Record", "RESULTS.md, checked at build"],
+  ];
+  return (
+    <figure className="diagram-wrap">
+      <svg
+        className="flow-diagram"
+        viewBox="0 0 980 120"
+        role="img"
+        aria-label="Verification flow: implementations in ten modules are tested by 85 tests, timed in 8 measured benchmark rows, and recorded in RESULTS.md, which the build checks"
+      >
+        <defs>
+          <marker id="fl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" className="fl-arrowhead" />
+          </marker>
+        </defs>
+        {steps.map(([title, sub], i) => {
+          const x = 10 + i * 245;
+          return (
+            <g key={title}>
+              {i > 0 ? <line className="fl-link" x1={x - 32} y1="60" x2={x - 6} y2="60" markerEnd="url(#fl-arrow)" /> : null}
+              <rect className="fl-box" x={x} y="24" width="208" height="72" rx="10" />
+              <text className="fl-title" x={x + 16} y="56">{title}</text>
+              <text className="fl-sub" x={x + 16} y="80">{sub}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption>
+        The verification flow behind every number on this page: implement,
+        test, time, then record, with the build failing if the page drifts
+        from RESULTS.md.
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function App() {
   const [area, setArea] = useState("All areas");
   const [query, setQuery] = useState("");
@@ -138,6 +179,7 @@ export default function App() {
 
       <main>
         <section className="hero container">
+          <p className="kicker">Measured record</p>
           <h1>Algorithms, verified by measurement.</h1>
           <p className="lead">
             Algorithms from scratch in Python, checked by tests and timed
@@ -168,6 +210,7 @@ export default function App() {
         </section>
 
         <section id="coverage" className="section container">
+          <p className="kicker">Coverage</p>
           <h2>Coverage map</h2>
           <p className="section-lede">
             Ten areas, one module each. Select an area to filter the
@@ -193,6 +236,7 @@ export default function App() {
         </section>
 
         <section id="benchmarks" className="section container">
+          <p className="kicker">Measured results</p>
           <h2>Benchmarks, losses included</h2>
           <p className="section-lede">
             Median wall-clock times from RESULTS.md. The two hand-written sorts
@@ -243,6 +287,7 @@ export default function App() {
         </section>
 
         <section id="index" className="section container" ref={indexRef}>
+          <p className="kicker">Index</p>
           <h2>Implementation index</h2>
           <p className="section-lede">
             Every implementation named in the README coverage table, with the
@@ -292,6 +337,7 @@ export default function App() {
         </section>
 
         <section id="structure" className="section container">
+          <p className="kicker">Structure and flow</p>
           <h2>How the pack is built</h2>
           <p className="section-lede">
             One package, ten modules. Each module is checked by its own test
@@ -301,9 +347,11 @@ export default function App() {
           <div className="diagram-wrap">
             <StructureDiagram />
           </div>
+          <FlowDiagram />
         </section>
 
         <section id="method" className="section container">
+          <p className="kicker">Method</p>
           <h2>Method and honest reading</h2>
           <div className="two-col">
             <div>

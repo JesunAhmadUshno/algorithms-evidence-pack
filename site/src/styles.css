@@ -1,15 +1,29 @@
 /* Hallmark · shape: Index-First workbench · genre: modern-minimal · theme: custom · job: try · idea: "a measured algorithms record the reader can interrogate" · vibe: "austere, technical, exact, calm"
  * paper: oklch(98.5% 0.004 250) · accent: oklch(50% 0.14 245) · display: Inter system stack · body: Inter system stack · hero: headline, one sentence, two actions, then the measured record · nav: edge-aligned wordmark and section links · footer: claims ceiling, then source links · imagery: none, charts and a structure diagram carry the page · signature: the benchmark chart with the two losses left in
  * axes: paper/display/accent · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · waive 1 · the face is declared once, as the --font-display token at :root in tokens.css, and used only through that token · the system stack is deliberate: no webfont download on a documentation page, and the build stays dependency-light */
+/* Hallmark · alignment 2026-11-15 · tokens, menubar, stacked cards and the dark footer band follow the llm-observability reference language; faces are declared as tokens in tokens.css and loaded in index.html */
 /* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V4 · weakest: S, a results page can read as a generic dashboard; fixed by leading with the measured record and keeping the honest losses in the chart */
 
-.page { min-height: 100vh; }
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--text);
+}
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 var(--space-xs);
+}
 
 .nav {
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg);
-  padding-top: var(--space-lg); padding-bottom: var(--space-lg);
-  border-bottom: var(--rule-hair) solid var(--color-rule);
+  padding-top: var(--space-xs); padding-bottom: var(--space-xs);
+  background: var(--surface);
+  border-bottom: var(--rule-hair) solid var(--border);
 }
 .wordmark { font-weight: var(--display-weight); font-size: var(--text-lg); letter-spacing: var(--tracking-display); }
 .nav-links { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; }
@@ -21,7 +35,13 @@
 }
 .nav-links .nav-cta:hover { color: var(--color-ink); border-color: var(--color-ink-2); text-decoration: none; }
 
-.hero { padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); }
+.hero {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-xl); padding-bottom: var(--space-xl);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
 .hero .lead { font-size: var(--text-lead); line-height: 1.45; max-width: 52ch; color: var(--color-ink-2); margin-top: var(--space-md); }
 .hero-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-lg); flex-wrap: wrap; }
 .btn {
@@ -37,7 +57,13 @@
 .stats dt { font-size: var(--text-sm); color: var(--color-muted); }
 .stats dd { font-variant-numeric: tabular-nums; margin: var(--space-2xs) 0 0; font-size: var(--text-xl); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); }
 
-.section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.section {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-xl); padding-bottom: var(--space-xl);
+  background: var(--surface);
+  border: var(--rule-hair) solid var(--border);
+  border-radius: var(--radius-xl);
+}
 .section-lede { color: var(--color-ink-2); max-width: 62ch; margin-top: var(--space-sm); }
 
 .coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: var(--space-md); margin-top: var(--space-lg); }
@@ -119,11 +145,32 @@ td.num, th.num { text-align: right; }
 .col-head { font-size: var(--text-title); margin-bottom: var(--space-md); }
 .plain-list { margin: 0; padding-left: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); color: var(--color-ink-2); }
 
-.footer { border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-xl); padding-bottom: var(--space-3xl); color: var(--color-ink-2); }
-.footer-head { font-weight: var(--display-weight); color: var(--color-ink); font-size: var(--text-lg); letter-spacing: var(--tracking-display); margin-bottom: var(--space-sm); }
+.footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl); padding-bottom: var(--space-2xl);
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  box-shadow: 0 0 0 100vmax var(--footer-bg);
+  clip-path: inset(0 -100vmax);
+}
+.footer-head { font-weight: var(--display-weight); color: var(--footer-strong); font-size: var(--text-lg); letter-spacing: var(--tracking-display); margin-bottom: var(--space-sm); }
 .footer p { max-width: 68ch; }
 .footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin-top: var(--space-lg); font-size: var(--text-sm); }
-.footer-note { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
+.footer-note { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--footer-text); }
+.footer a { color: var(--footer-text); }
+.footer a:hover { color: var(--footer-strong); }
+.footer .support a {
+  border-color: var(--footer-text);
+  background: transparent;
+  color: var(--footer-text);
+}
+.footer .support a:hover { background: var(--footer-code-bg); color: var(--footer-strong); border-color: var(--footer-strong); }
+.flow-diagram { width: 100%; height: auto; }
+.fl-box { fill: var(--color-paper-2); stroke: var(--color-rule-2); stroke-width: 1; }
+.fl-title { fill: var(--color-ink); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; }
+.fl-sub { fill: var(--color-muted); font-family: var(--font-mono); font-size: var(--text-xs); }
+.fl-link { stroke: var(--color-rule-2); stroke-width: 1.5; }
+.fl-arrowhead { fill: var(--color-rule-2); }
 .support { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
 .support a {
   border: var(--rule-hair) solid var(--color-rule-2);
