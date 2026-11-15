@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "algorithms-evidence-pack"
+version = "1.0.0"
+description = "Classic data structures and algorithms in Python, implemented, tested, and timed."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
