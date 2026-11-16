@@ -1,0 +1,18 @@
+src:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+benchmarks:
+  - changed-files:
+      - any-glob-to-any-file: ["benchmarks/**"]
+tests:
+  - changed-files:
+      - any-glob-to-any-file: ["tests/**"]
+site:
+  - changed-files:
+      - any-glob-to-any-file: ["site/**"]
+docs:
+  - changed-files:
+      - any-glob-to-any-file: ["README.md", "RESULTS.md"]
+automation:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**"]
